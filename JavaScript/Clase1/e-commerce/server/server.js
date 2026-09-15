@@ -24,6 +24,7 @@ const client = new MercadoPagoConfig({
 });
 const preferenceClient = new Preference(client);
 const publicUrl = process.env.PUBLIC_URL?.replace(/\/$/, "");
+const frontendUrl = process.env.FRONTEND_URL?.replace(/\/$/, "");
 let configuredUrl;
 let publicHttpsUrl;
 
@@ -98,7 +99,7 @@ app.get("/feedback", function (req, res) {
     merchant_order_id: req.query.merchant_order_id || "",
   });
 
-  res.redirect(303, `/?${params.toString()}`);
+  res.redirect(303, `${frontendUrl || "http://localhost:3000"}/?${params.toString()}`);
 });
 
 const port = Number(process.env.PORT) || 3000;

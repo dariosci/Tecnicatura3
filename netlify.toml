@@ -1,0 +1,8 @@
+[build]
+  base = "JavaScript/Clase1/e-commerce/client"
+  publish = "."
+
+[[redirects]]
+  from = "/feedback"
+  to = "/index.html"
+  status = 200

@@ -5,6 +5,7 @@ const cartBtn = document.getElementById("cart-btn");
 const cartCounter = document.getElementById("cart-counter");
 const headerCart = document.getElementById("header-cart");
 const headerCartCount = document.getElementById("header-cart-count");
+const apiUrl = document.querySelector('meta[name="api-url"]')?.content.replace(/\/$/, "") || "";
 
 const displayCart = () => {
   modalContainer.innerHTML = "";
@@ -151,7 +152,7 @@ const displayCart = () => {
                 purpose: "wallet_purchase",
               };
               return new Promise((resolve, reject) => {
-                fetch("/create_preference", {
+                fetch(`${apiUrl}/create_preference`, {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
