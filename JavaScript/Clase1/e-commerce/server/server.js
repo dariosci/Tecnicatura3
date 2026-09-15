@@ -5,7 +5,13 @@ import { fileURLToPath } from "node:url";
 import { MercadoPagoConfig, Preference } from "mercadopago";
 
 const app = express();
-process.loadEnvFile();
+try {
+  process.loadEnvFile();
+} catch (error) {
+  if (error.code !== "ENOENT") {
+    throw error;
+  }
+}
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -95,7 +101,9 @@ app.get("/feedback", function (req, res) {
   res.redirect(303, `/?${params.toString()}`);
 });
 
-app.listen(3000, "0.0.0.0", () => {
-	console.log("The server is now running on Port 3000");
+const port = Number(process.env.PORT) || 3000;
+
+app.listen(port, "0.0.0.0", () => {
+  console.log(`The server is now running on Port ${port}`);
 });
 
