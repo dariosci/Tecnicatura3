@@ -1,15 +1,12 @@
-# Tecnicatura3
+# EscuadronLobo Market
 
-Repositorio de trabajos prácticos de la Tecnicatura, con proyectos en Java, JavaScript y Python.
+E-commerce de productos tecnológicos con frontend estático, backend Express y pagos mediante Mercado Pago.
 
-## E-commerce EscuadronLobo Market
-
-El ecommerce está en `JavaScript/Clase1/e-commerce` y tiene dos partes:
+## Estructura
 
 - `client/`: frontend estático publicado en Netlify.
 - `server/`: backend Express que crea las preferencias de Mercado Pago y está publicado en Render.
-
-El frontend necesita la URL pública del backend para crear los pagos.
+- `netlify.toml`: configuración de publicación del frontend.
 
 ## Requisitos
 
@@ -31,7 +28,7 @@ pnpm --version
 
 ```bash
 git clone https://github.com/dariosci/Tecnicatura3.git
-cd Tecnicatura3
+cd Tecnicatura3/JavaScript/Clase1/e-commerce
 ```
 
 ## Ejecutar el backend localmente
@@ -39,7 +36,7 @@ cd Tecnicatura3
 Entrá en la carpeta del servidor e instalá sus dependencias:
 
 ```bash
-cd JavaScript/Clase1/e-commerce/server
+cd server
 pnpm install
 ```
 
@@ -103,7 +100,7 @@ Con una URL vacía, el navegador usa el mismo origen (`/create_preference`).
    NODE_ENV=production
    ```
 
-6. Hacé el deploy y copiá la URL HTTPS que Render asigne al servicio.
+6. Hacé el deploy y copiá la URL HTTPS que Render asigne.
 7. Verificá que `https://tu-backend.onrender.com/` responda correctamente.
 
 `PUBLIC_URL` es la URL del backend. Render la usa para que Mercado Pago vuelva a `/feedback` después del pago.
@@ -133,7 +130,7 @@ Render proporciona automáticamente `PORT`; el servidor ya está preparado para 
 5. Publicá el sitio y copiá la URL HTTPS que Netlify asigne.
 6. Actualizá `FRONTEND_URL` en Render con esa URL y hacé un redeploy del backend.
 
-Cada vez que cambies el código, hacé commit y push:
+Cada vez que cambies el código, hacé commit y push desde la raíz del repositorio:
 
 ```bash
 git add .
