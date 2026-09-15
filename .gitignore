@@ -1,0 +1,23 @@
+# Dependencies and local environments
+**/node_modules/
+**/venv/
+**/__pycache__/
+**/.venv/
+
+# Environment variables and secrets
+**/.env
+**/.env.*
+!**/.env.example
+
+# Local tooling and generated files
+**/.vscode/
+**/.idea/
+**/*.log
+**/dist/
+**/build/
+**/coverage/
+
+# Archives and OS metadata
+**/*.zip
+**/Thumbs.db
+**/.DS_Store
